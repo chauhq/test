@@ -28,6 +28,9 @@ class MainActivity : AppCompatActivity() {
         val observableStr = Observable.just("kka", "llaa")
         val observableInt = Observable.just(1, 2, 3)
 
+
+      // comment
+
         Observable
             .merge(observableStr, observableInt)
             .subscribeOn(Schedulers.io())
