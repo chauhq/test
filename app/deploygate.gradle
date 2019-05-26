@@ -5,13 +5,11 @@ deploygate {
     token = System.getenv('DEPLOYGATE_TOKEN')
     apks {
         debug {
-            if (System.getenv('CIRCLE_BRANCH')) {
-                message = System.getenv('CIRCLE_BRANCH') + '\n'
-            }
-            // set as build message
-            message = message + 'git log --oneline -1'.execute([], project.rootDir).in.text.trim()
-            // if you are using a distribution page, you can update it simultaneously
-            // distributionKey = "1234567890abcdef1234567890abcdef"
+            // ProTip: Use Git hash of the current commit for easier troubleshooting
+            def hash = "git rev-parse --short HEAD".execute([], project.rootDir).in.text.trim()
+
+            // Set a text which is associated with an application file on DeployGate
+            message = "debug build ${hash}" // null by default
         }
     }
 }
