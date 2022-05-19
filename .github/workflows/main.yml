@@ -34,4 +34,5 @@ jobs:
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
+          github_token: ${{ secrets.TOKEN_GITHUB }}
           path: app/chau.html
