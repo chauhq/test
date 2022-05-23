@@ -1,21 +1,17 @@
-name: Android Pull Request & Master CI
-
+name: Label issues
 on:
-  pull_request:
-    branches:
-      - 'master'
-  push:
-    branches:
-      - 'master'
+  issues:
+    types:
+      - reopened
+      - opened
 jobs:
-  add-comment:
+  label_issues:
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
-      - name: Add comment
-        uses: peter-evans/create-or-update-comment@v2
+      - name: Label issues
+        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
         with:
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            This issue is available for anyone to work on. **Make sure to reference this issue in your pull request.** :sparkles: Thank you for your contribution! :sparkles:
+          add-labels: "triage"
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
