@@ -4,6 +4,8 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+apply plugin: "com.worker8.android_lint_reporter"
+
 
 android {
     compileSdkVersion 29
@@ -25,14 +27,14 @@ android {
     lintOptions {
         abortOnError false
     }
+}
 
-    android_lint_reporter {
-        lintFilePath = "./app/build/reports/lint-results.xml"
-        detektFilePath = ".app/build/reports/detekt_reports.xml"
-        githubOwner = "worker8"
-        githubRepositoryName = "AndroidLintReporter"
-        showLog = true // optional - default to false, show extra information, will slow things down
-    }
+android_lint_reporter {
+    lintFilePath = "./app/build/reports/lint-results.xml"
+    detektFilePath = ".app/build/reports/detekt_reports.xml"
+    githubOwner = "worker8"
+    githubRepositoryName = "AndroidLintReporter"
+    showLog = true // optional - default to false, show extra information, will slow things down
 }
 
 dependencies {
