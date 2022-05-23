@@ -1,0 +1,16 @@
+name: 'GitHub Action for Android Lint'
+description: 'A tool to enforce Android style and conventions'
+author: 'yutailang0119'
+inputs:
+  report-path:
+    description: 'The lint report file path. Support glob patterns. e.g `build/reports/*.xml`'
+    required: true
+  follow-symbolic-links:
+    description: 'Indicates whether to follow symbolic links'
+    default: true
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
+branding:
+  icon: 'check-square'
+  color: 'green'
