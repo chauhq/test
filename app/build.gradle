@@ -4,12 +4,13 @@ apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
 
+
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     defaultConfig {
         applicationId "com.example.myapplication"
         minSdkVersion 15
-        targetSdkVersion 28
+        targetSdkVersion 29
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -23,6 +24,14 @@ android {
 
     lintOptions {
         abortOnError false
+    }
+
+    android_lint_reporter {
+        lintFilePath = "./app/build/reports/lint-results.xml"
+        detektFilePath = ".app/build/reports/detekt_reports.xml"
+        githubOwner = "worker8"
+        githubRepositoryName = "AndroidLintReporter"
+        showLog = true // optional - default to false, show extra information, will slow things down
     }
 }
 
