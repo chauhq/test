@@ -23,8 +23,3 @@ jobs:
           java-version: 1.8
       - name: Run Android Linter
         run: ./gradlew lint
-      - name: report
-        uses: yutailang0119/action-android-lint@v3
-        with:
-          report-path: build/reports/*.xml
-         continue-on-error: false
