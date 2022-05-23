@@ -9,6 +9,7 @@ on:
       - 'master'
 
 jobs:
+  job1:
     steps:
       - name: "Say Hello Mona it's Monday"
           run: echo "Greeting first_Name. Today is $DAY_OF_WEEK!"
