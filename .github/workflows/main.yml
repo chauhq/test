@@ -1,4 +1,4 @@
-name: Android Pull Request & Master CI
+name: AndroidLint
 
 on:
   pull_request:
@@ -23,9 +23,8 @@ jobs:
           distribution: zulu
           java-version: 11
           cache: gradle
-      - run: |
-          npm install
-      - run: |
-          npm run all
       - run: ./gradlew lint
       - uses: yutailang0119/action-android-lint@v3
+        with:
+          report-path: build/reports/*.xml # Support glob patterns by https://www.npmjs.com/package/@actions/glob
+        continue-on-error: false # If annotations contain error of severity, action-android-lint exit 1.
