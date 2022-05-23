@@ -29,4 +29,3 @@ jobs:
           npm run all
       - run: ./gradlew lint
       - uses: yutailang0119/action-android-lint@v3
-          continue-on-error: false
