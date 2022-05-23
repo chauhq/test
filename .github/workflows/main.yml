@@ -24,4 +24,4 @@ jobs:
         run: ./gradlew lint
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace/build }}
+          ls ${{ github.build }}
