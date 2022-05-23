@@ -23,5 +23,5 @@ jobs:
       - name: Run Android Lint
         run: ./gradlew lint
       - name: List files in the repository
-        run:
-          ls
+        run: |
+          ls ${{build }}
