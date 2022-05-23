@@ -17,8 +17,6 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Label issues
-        uses: actions/labeler@v2
+      - uses: actions/labeler@v3
         with:
-          add-labels: "triage"
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
