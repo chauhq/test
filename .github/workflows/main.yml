@@ -24,7 +24,7 @@ jobs:
           java-version: 11
           cache: gradle
       - run: ./gradlew lint
-      - uses: ./
-          with:
-            report-path: ${{ github.workspace }}/__tests__/resource/lint-results.xml
-          continue-on-error: true
+      - uses: yutailang0119/action-android-lint@v3
+        with:
+          report-path: ${{ github.workspace }}/__tests__/resource/lint-results.xml # Support glob patterns by https://www.npmjs.com/package/@actions/glob
+        continue-on-error: false # If annotations contain error of severity, action-android-lint exit 1.
