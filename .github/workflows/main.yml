@@ -8,11 +8,9 @@ on:
     branches:
       - 'master'
   issues:
-    types: [ opened ]
-    pull_request:
-      types: [ opened ]
-    project_card:
-      types: [ moved ]
+    types:
+      - reopened
+      - opened
 jobs:
   label_issues:
     runs-on: ubuntu-latest
@@ -20,7 +18,7 @@ jobs:
       issues: write
     steps:
       - name: Label issues
-        uses: andymckay/labeler@e6c4322d0397f3240f0e7e30a33b5c5df2d39e90
+        uses: andymckay/labeler@master
         with:
           add-labels: "triage"
           repo-token: ${{ secrets.GITHUB_TOKEN }}
