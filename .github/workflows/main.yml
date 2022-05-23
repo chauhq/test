@@ -1,24 +1,34 @@
-name: 'build-test'
+name: Android Pull Request & Master CI
+
 on:
   pull_request:
-  push:
-    branches:
-      - main
+    paths:
+      - .github/workflows/android-lint.yml
+      - '*/src/**'
+      - gradle/**
+      - '**.gradle'
+      - gradle.properties
+      - gradlew*
 
 jobs:
-  build:
+  android-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.0.2
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 1
+      - name: set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: zulu
+          java-version: 11
+          cache: gradle
       - run: |
           npm install
       - run: |
           npm run all
-  test:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3.0.2
-      - uses: ./
-        with:
-          report-path: ${{ github.workspace }}/__tests__/resource/lint-results.xml
-        continue-on-error: true
+      - run: ./gradlew lint
+      - uses: yutailang0119/action-android-lint@v3
+          with:
+            report-path: build/reports/*.xml
+          continue-on-error: false
