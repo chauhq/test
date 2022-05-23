@@ -1,9 +1,18 @@
-name: Label issues
+name: Android Pull Request & Master CI
+
 on:
+  pull_request:
+    branches:
+      - 'master'
+  push:
+    branches:
+      - 'master'
   issues:
-    types:
-      - reopened
-      - opened
+    types: [ opened ]
+    pull_request:
+      types: [ opened ]
+    project_card:
+      types: [ moved ]
 jobs:
   label_issues:
     runs-on: ubuntu-latest
