@@ -18,14 +18,12 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        private const val aaa = 1
-    }
-
     private val kaka = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        ("kaka" as String).toString()
     }
 }
