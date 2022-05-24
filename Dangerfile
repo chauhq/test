@@ -9,14 +9,22 @@ declared_trivial = github.pr_title.include? "#trivial"
 warn("PR is classed as Work in Progress") if github.pr_title.include? "[WIP]"
 
 # Warn when there is a big PR
-warn("Big PR") if git.lines_of_code > 2
+warn("Big PR") if git.lines_of_code > 500
 
 # Don't let testing shortcuts get into master by accident
 fail("fdescribe left in tests") if `grep -r fdescribe specs/ `.length > 1
 fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 
+
+# Ktlint
+KTLINT_OUTPUTS = "**/app/build/reports/ktlint/ktlint-results.xml"
+Dir[KTLINT_OUTPUTS].each do |file_name|
+  checkstyle_format.base_path = Dir.pwd
+  checkstyle_format.report file_name
+end
+
 # Android Lint
-LINT_OUTPUTS = "**/app/lint-results.xml"
+LINT_OUTPUTS = "**/app/build/reports/lint-results-debug.xml"
 Dir[LINT_OUTPUTS].each do |file_name|
   android_lint.skip_gradle_task = true
   android_lint.filtering = true
