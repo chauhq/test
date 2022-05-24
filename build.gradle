@@ -19,7 +19,6 @@ buildscript {
         // in the individual module build.gradle files
     }
 }
-apply plugin: "com.worker8.android_lint_reporter"
 
 allprojects {
     repositories {
