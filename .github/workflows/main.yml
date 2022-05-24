@@ -23,4 +23,4 @@ jobs:
         env:
           PR_NUMBER: ${{ github.event.number }}
         run: |
-          ./gradlew lint && ./gradlew parseAndSendLintResult -PgithubPullRequestId=$PR_NUMBER
+          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
