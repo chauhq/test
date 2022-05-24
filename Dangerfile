@@ -16,11 +16,11 @@ fail("fdescribe left in tests") if `grep -r fdescribe specs/ `.length > 1
 fail("fit left in tests") if `grep -r fit specs/ `.length > 1
 
 # Android Lint
-LINT_OUTPUTS = "**/app/build/reports/lint-results.xml"
+LINT_OUTPUTS = "**/app/lint-results.xml"
 Dir[LINT_OUTPUTS].each do |file_name|
   android_lint.skip_gradle_task = true
   android_lint.filtering = true
-  android_lint.report_file = "/app/build/reports/lint-results.xml"
+  android_lint.report_file = file_name
   android_lint.lint(inline_mode: true)
 end
 
