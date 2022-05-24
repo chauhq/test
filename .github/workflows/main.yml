@@ -19,8 +19,8 @@ jobs:
         uses: actions/setup-java@v1
         with:
           java-version: 1.8
-      - run: ./gradlew lint
-      - uses: yutailang0119/action-android-lint@v3
-        with:
-          report-path: lint-results.xml # Support glob patterns by https://www.npmjs.com/package/@actions/glob
-        continue-on-error: false
+      - name: Run lint && parse lint-results.xml && send report to PR
+        env:
+          PR_NUMBER: ${{ github.event.number }}
+        run: |
+          ./gradlew lint && ./gradlew parseAndSendLintResult -PgithubPullRequestId=$PR_NUMBER
