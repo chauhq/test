@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.worker8.android_lint_reporter'
 
 android_lint_reporter {
-    lintFilePath = "./build/reports/lint-results.xml"
+    lintFilePath = "./lint-results.xml"
     githubRepositoryName = "AndroidLintReporter"
     showLog = true // optional - default to false, show extra information, will slow things down
 }
