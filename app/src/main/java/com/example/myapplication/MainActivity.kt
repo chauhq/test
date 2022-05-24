@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.TextView
 import io.reactivex.*
 import io.reactivex.Observable
 import io.reactivex.Observer
@@ -25,5 +26,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         ("kaka" as String).toString()
+        findViewById<TextView>(R.id.click).setOnClickListener { kaka ->
+
+        }
     }
 }
