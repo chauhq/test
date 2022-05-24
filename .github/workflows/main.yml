@@ -18,9 +18,6 @@ jobs:
         with:
           arguments: build
 
-      - name: Run Lint check
-        run: ./gradlew ktlintCheck
-
       - name: Run Android Lint check
         run: ./gradlew lint
 
