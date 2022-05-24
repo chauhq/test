@@ -23,6 +23,7 @@ Dir[LINT_OUTPUTS].each do |file_name|
   android_lint.report_file = file_name
   android_lint.lint(inline_mode: true)
 end
+warn(Dir[LINT_OUTPUTS])
 
 Dir.glob("./app/build/test-results/**/*.xml").each do |test|
   junit.parse test
