@@ -18,6 +18,8 @@ jobs:
         with:
           arguments: build
 
+      - name: clean
+        run: ./gradlew clean
       - name: Run Android Lint check
         run: ./gradlew lintDebug
 
