@@ -26,6 +26,7 @@ end
 # Android Lint
 LINT_OUTPUTS = "**/app/build/reports/lint-results.xml"
 Dir[LINT_OUTPUTS].each do |file_name|
+  echo(file_name)
   android_lint.skip_gradle_task = true
   android_lint.filtering = true
   android_lint.report_file = file_name
