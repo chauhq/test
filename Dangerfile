@@ -24,6 +24,7 @@ Dir[KTLINT_OUTPUTS].each do |file_name|
 end
 
 # Android Lint
+echo("LINT_OUTPUTS")
 LINT_OUTPUTS = "**/app/build/reports/lint-results.xml"
 Dir[LINT_OUTPUTS].each do |file_name|
   echo(file_name)
