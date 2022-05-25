@@ -20,14 +20,19 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
 
     private val kaka = ""
+    private val hihi = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         ("kaka" as String).toString()
+        (1 as Int).toString()
         findViewById<TextView>(R.id.click).setOnClickListener { kaka ->
 
+        }
+        findViewById<TextView>(R.id.click).setOnTouchListener { view, motionEvent ->
+            false
         }
     }
 }
