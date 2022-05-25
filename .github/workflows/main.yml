@@ -19,7 +19,7 @@ jobs:
           arguments: build
 
       - name: Run Android Lint check
-        run: ./gradlew lint
+        run: ./gradlew lintDebug
 
       - name: List files in the repository
         run: |

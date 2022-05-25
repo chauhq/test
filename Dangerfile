@@ -23,17 +23,6 @@ Dir[KTLINT_OUTPUTS].each do |file_name|
   checkstyle_format.report file_name
 end
 
-# Android Lint
-warn("LINT_OUTPUTS")
-LINT_OUTPUTS = "**/app/build/reports/lint-results.xml"
-Dir[LINT_OUTPUTS].each do |file_name|
-  warn(file_name)
-  android_lint.skip_gradle_task = true
-  android_lint.filtering = true
-  android_lint.report_file = file_name
-  android_lint.lint(inline_mode: true)
-end
-
 Dir.glob("./app/build/test-results/**/*.xml").each do |test|
   junit.parse test
   junit.report
