@@ -22,8 +22,8 @@ jobs:
         run: ./gradlew lint
 
       - name: List files in the repository
-          run: |
-            ls ${{ github.workspace }}
+        run: |
+          ls ${{ github.workspace }}/app/build/reports/lint-results.xml
 
       - name: Install Ruby
         uses: actions/setup-ruby@v1
