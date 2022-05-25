@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.widget.TextView
 import io.reactivex.*
 import io.reactivex.Observable
 import io.reactivex.Observer
@@ -18,14 +19,15 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
 
-    companion object {
-        private const val aaa = 1
-    }
-
     private val kaka = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        ("kaka" as String).toString()
+        findViewById<TextView>(R.id.click).setOnClickListener { kaka ->
+
+        }
     }
 }

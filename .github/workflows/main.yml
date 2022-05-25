@@ -18,8 +18,14 @@ jobs:
         with:
           arguments: build
 
+      - name: clean
+        run: ./gradlew clean
       - name: Run Android Lint check
-        run: ./gradlew lint
+        run: ./gradlew lintDebug
+
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}/app/build/reports
 
       - name: Install Ruby
         uses: actions/setup-ruby@v1
