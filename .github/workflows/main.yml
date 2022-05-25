@@ -21,6 +21,10 @@ jobs:
       - name: Run Android Lint check
         run: ./gradlew lint
 
+      - name: check file
+          run: |
+            ls ${{ github.workspace }}/app/build/reports
+
       - name: Install Ruby
         uses: actions/setup-ruby@v1
         with:
