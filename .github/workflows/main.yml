@@ -25,7 +25,7 @@ jobs:
 
       - name: List files in the repository
         run: |
-          ls ${{ github.workspace }}/app/build/reports/lint-results.xml
+          ls ${{ github.workspace }}/app/build/reports
 
       - name: Install Ruby
         uses: actions/setup-ruby@v1
